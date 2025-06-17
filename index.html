@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Edge Labs - Accelerating Business with Strategic AI</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Tech Edge Labs helps you streamline operations, reduce costs, and unlock real ROI through AI-powered innovation. We offer AI consulting and workshops.">
+    <meta name="keywords" content="AI consulting, AI workshops, prompt engineering, predictive analytics, generative AI, business AI solutions">
+    <meta name="author" content="Tech Edge Labs">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Tech Edge Labs - Strategic AI Solutions">
+    <meta property="og:description" content="Streamline operations, reduce costs, and unlock real ROI through AI-powered innovation.">
+    <meta property="og:image" content="https://placehold.co/1200x630/1e293b/ffffff?text=Tech+Edge+Labs">
+    <meta property="og:url" content="https://techedgelabs.example.com">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tech Edge Labs - Strategic AI Solutions">
+    <meta name="twitter:description" content="Streamline operations, reduce costs, and unlock real ROI through AI-powered innovation.">
+    <meta name="twitter:image" content="https://placehold.co/1200x630/1e293b/ffffff?text=Tech+Edge+Labs">
+
+    <!-- Tailwind CSS & Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+            color: #0f172a; /* slate-900 */
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .floating-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .glow-on-hover:hover {
+            box-shadow: 0 0 15px 5px rgba(59, 130, 246, 0.5); /* blue-500 */
+        }
+        /* Page transition styles */
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+        /* Custom modal styles */
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Sticky Header -->
+    <header id="main-header" class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="nav-link text-2xl font-bold text-slate-800">
+                Tech Edge<span class="text-blue-600">Labs</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="nav-link text-slate-600 hover:text-blue-600 transition-colors duration-300">Home</a>
+                <a href="#services" class="nav-link text-slate-600 hover:text-blue-600 transition-colors duration-300">Services</a>
+                <a href="#about" class="nav-link text-slate-600 hover:text-blue-600 transition-colors duration-300">About</a>
+            </div>
+            <a href="#contact" class="nav-link hidden md:inline-block bg-blue-600 text-white font-semibold px-5 py-2 rounded-lg hover:bg-blue-700 transition-all duration-300 glow-on-hover">
+                Let's Talk
+            </a>
+            <button id="mobile-menu-button" class="md:hidden text-slate-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white">
+            <a href="#home" class="nav-link block text-slate-600 hover:bg-blue-50 px-6 py-3">Home</a>
+            <a href="#services" class="nav-link block text-slate-600 hover:bg-blue-50 px-6 py-3">Services</a>
+            <a href="#about" class="nav-link block text-slate-600 hover:bg-blue-50 px-6 py-3">About</a>
+            <a href="#contact" class="nav-link block text-blue-600 font-semibold hover:bg-blue-50 px-6 py-3">Let's Talk</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <!-- Hero Section -->
+            <section class="bg-slate-900 text-white pt-24 pb-32">
+                <div class="container mx-auto px-6 text-center">
+                    <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4 fade-in">Accelerating Business with Strategic AI Solutions</h1>
+                    <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-8 fade-in" style="transition-delay: 200ms;">Tech Edge Labs helps you streamline operations, reduce costs, and unlock real ROI through AI-powered innovation.</p>
+                    <a href="mailto:contact@techedgelabs.com" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-blue-700 transition-transform transform hover:scale-105 duration-300 inline-block glow-on-hover fade-in" style="transition-delay: 400ms;">Contact Us Now</a>
+                </div>
+            </section>
+
+            <!-- Trusted By Bar -->
+            <section class="py-12 bg-slate-50">
+                <div class="container mx-auto px-6 text-center">
+                    <h2 class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-8 fade-in">Trusted by forward-thinking teams worldwide</h2>
+                    <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 fade-in">
+                        <img src="https://placehold.co/140x50/cbd5e1/475569?text=InnovateCorp" alt="InnovateCorp Logo" class="h-8 md:h-10 opacity-60 hover:opacity-100 transition-opacity">
+                        <img src="https://placehold.co/140x50/cbd5e1/475569?text=QuantumLeap" alt="QuantumLeap Logo" class="h-8 md:h-10 opacity-60 hover:opacity-100 transition-opacity">
+                        <img src="https://placehold.co/140x50/cbd5e1/475569?text=Apex+Solutions" alt="Apex Solutions Logo" class="h-8 md:h-10 opacity-60 hover:opacity-100 transition-opacity">
+                        <img src="https://placehold.co/140x50/cbd5e1/475569?text=FutureProof" alt="FutureProof Logo" class="h-8 md:h-10 opacity-60 hover:opacity-100 transition-opacity">
+                        <img src="https://placehold.co/140x50/cbd5e1/475569?text=Synergy+Inc." alt="Synergy Inc. Logo" class="h-8 md:h-10 opacity-60 hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+            </section>
+
+            <!-- AI Topics We Cover Section -->
+            <section id="topics" class="py-20">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-slate-800">AI Topics We Cover</h2>
+                        <p class="text-lg text-slate-600 mt-2">From foundational concepts to advanced applications.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <!-- Topic Card 1 -->
+                        <div class="topic-card bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer fade-in" data-topic="prompt-engineering">
+                            <div class="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 mb-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707.707M12 21v-1m0-16a9 9 0 110 18 9 9 0 010-18z" /></svg>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2 text-slate-800">Prompt Engineering</h3>
+                            <p class="text-slate-600">Master the art of crafting effective prompts to get the best results from generative AI models.</p>
+                        </div>
+                        <!-- Topic Card 2 -->
+                        <div class="topic-card bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer fade-in" data-topic="predictive-analytics">
+                            <div class="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 mb-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2 text-slate-800">Predictive Analytics</h3>
+                            <p class="text-slate-600">Leverage historical data to forecast future trends, behaviors, and outcomes with high accuracy.</p>
+                        </div>
+                        <!-- Topic Card 3 -->
+                        <div class="topic-card bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer fade-in" data-topic="ai-customer-service">
+                            <div class="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 mb-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a2 2 0 01-2-2V7a2 2 0 012-2h4M5 8h2a2 2 0 012 2v6a2 2 0 01-2 2H5v4l-4-4H1a2 2 0 01-2-2V7a2 2 0 012-2h4" /></svg>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2 text-slate-800">AI in Customer Service</h3>
+                            <p class="text-slate-600">Enhance customer satisfaction and efficiency with AI-powered chatbots and support systems.</p>
+                        </div>
+                        <!-- Topic Card 4 -->
+                        <div class="topic-card bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer fade-in" data-topic="generative-ai">
+                            <div class="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 mb-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 3.104l-2.25 4.532-4.996.726 3.616 3.524-.853 4.978L9.75 14.25l4.483 2.356-.853-4.978 3.616-3.524-4.996-.726-2.25-4.532z" /></svg>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2 text-slate-800">Generative AI for Business</h3>
+                            <p class="text-slate-600">Unlock creative potential and automate content creation for marketing, design, and more.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Mid-scroll CTA Banner -->
+            <section class="bg-white py-12">
+                <div class="container mx-auto px-6">
+                    <div class="bg-slate-800 rounded-lg shadow-xl p-8 md:p-12 text-center text-white floating-animation">
+                         <h2 class="text-3xl font-bold mb-4">Future-proof your business with AI</h2>
+                         <p class="max-w-2xl mx-auto mb-6 text-slate-300">Don't get left behind. Our AI solutions are designed for immediate impact and long-term growth.</p>
+                         <a href="#services" class="nav-link bg-white text-slate-800 font-bold py-3 px-8 rounded-lg text-lg hover:bg-slate-200 transition-all duration-300 inline-block">Explore Our Services</a>
+                    </div>
+                </div>
+            </section>
+
+             <!-- PDF Brochure Download -->
+            <section class="py-20 bg-slate-50">
+                <div class="container mx-auto px-6 text-center">
+                    <h2 class="text-3xl font-bold text-slate-800 mb-4 fade-in">Ready to Dive Deeper?</h2>
+                    <p class="text-lg text-slate-600 mb-8 fade-in">Download our one-pager brochure for a comprehensive look at our services and workshops.</p>
+                    <a href="data:application/pdf;base64,JVBERi0xLjQKJdPr6eEKMSAwIG9iago8PAovVGl0bGUgKP7/VGVjaCBFZGdlIExhYnMgQnJvY2h1cmUpCi9DcmVhdG9yICj+/kRPTUNSSVRFLTEuMCkKL1Byb2R1Y2VyICj+/kRPTUNSSVRFLTEuMCkKL0NyZWF0aW9uRGF0ZSAoRDoyMDI0MDYxODE4NDg0Ny0wNScwMCcpPj4KZW5kb2JqCjIgMCBvYmoKPDwKL1R5cGUgL0NhdGFsb2cKL1BhZ2VzIDMgMCBSCj4+CmVuZG9iagozIDAgb2JqCjw8Ci9UeXBlIC9QYWdlcwovS2lkcyBbNCAwIFJdCi9Db3VudCAxCi9NZWRpYUJveCBbMCAwIDU5NSA4NDJdCj4+CmVuZG9iago0IDAgb2JqCjw8Ci9UeXBlIC9QYWdlCi9QYXJlbnQgMyAwIFIKL1Jlc291cmNlcyA1IDAgUgovQ29udGVudHMgNiAwIFIKPj4KZW5kb2JqCjUgMCBvYmoKPDwKL1Byb2NTZXQgWy9QREYgL1RleHQgL0ltYWdlQiAvSW1hZ2VDIC9JbWFnZUldCi9Gb250IDw8Ci9GMSAxMCAwIFIKPj4KL0V4dEdTdGF0ZSA8PAovR1M3IDcgMCBSCj4+Cj4+CmVuZG9iago2IDAgb2JqCjw8IC9MZW5ndGggMTgyID4+CnN0cmVhbQowLjU3IHcKMCBHCnBTClv/c3RhcnR4cmVmVQpdIGQKTiBCCkNvbnZlcnRlZCBieSBET01DUklURS0xLjAKYnQKL0YxIDI0IFRmCjE5OC40MyA3OTEuMDcgVGQKKENvbnRlbnQgdG8gYmUgYWRkZWQgaGVyZSEhISkgVGoKRVQKUQplbmRzdHJlYW0KZW5kb2JqCjcgMCBvYmoKPDwKL1R5cGUgL0V4dEdTdGF0ZQovU0EgdHJ1ZQovU00gMC4wMgovQ0EgMQovY2EgMQovQUlTIGZhbHNlCi9UayB0cnVlCj4+CmVuZG9iagoxMCAwIG9iago8PAovVHlwZSAvRm9udAovU3VidHlwZSAvVHlwZTEKL05hbWUgL0YxCi9CYXNlRm9udCAvSGVsdmV0aWNhCi9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nCj4+CmVuZG9iagp4cmVmCjAgMTEKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDE1IDAwMDAwIG4gCjAwMDAwMDAxMzAgMDAwMDAgbiAKMDAwMDAwMDE3MyAwMDAwMCBuIAowMDAwMDAwMjQ5IDAwMDAwIG4gCjAwMDAwMDAzMjUgMDAwMDAgbiAKMDAwMDAwMDQ1NSAwMDAwMCBuIAowMDAwMDAwNjU0IDAwMDAwIG4gCjAwMDAwMDA3NTAgMDAwMDAgbiAKMDAwMDAwMDAwMCAwMDAwMCBuIAowMDAwMDAwNzgzIDAwMDAwIG4gCnRyYWlsZXIKPDwKL1NpemUgMTEKL1Jvb3QgMiAwIFIKL0luZm8gMSAwIFIKL0lEIFs8Mjc3NzU5MDgzMzk3M2Y1ZDVjY2E2MTg0ODhkYzQ4MjU+PDcyMjBlOGExN2I3Y2JmZDE2NTgyNjg1ZGYxZTU0OWE3Pl0KPj4Kc3RhcnR4cmVmCjg3OAolJUVPRgo=" download="TechEdgeLabs-Brochure.pdf" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-blue-700 transition-transform transform hover:scale-105 duration-300 inline-block glow-on-hover fade-in" style="transition-delay: 200ms;">
+                        Download PDF Brochure
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <!-- Services Page -->
+        <div id="services" class="page">
+            <section class="pt-20 pb-16 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h1 class="text-4xl md:text-5xl font-bold text-slate-800">Our Services</h1>
+                        <p class="text-lg text-slate-600 mt-3 max-w-2xl mx-auto">Tailored AI solutions to drive efficiency, innovation, and growth.</p>
+                    </div>
+
+                    <!-- AI Consulting Section -->
+                    <div class="flex flex-col md:flex-row items-center gap-12 mb-20">
+                        <div class="md:w-1/2 fade-in">
+                            <span class="text-blue-600 font-semibold uppercase">Consulting</span>
+                            <h2 class="text-3xl font-bold text-slate-800 mt-2 mb-4">Strategic AI Consulting</h2>
+                            <p class="text-slate-600 mb-6">We partner with you to identify and implement the most impactful AI opportunities for your business. Our process is collaborative, transparent, and focused on delivering tangible results.</p>
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <svg class="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    <div>
+                                        <h4 class="font-semibold text-slate-800">Stakeholder Interviews & Process Audits</h4>
+                                        <p class="text-slate-600">We dive deep to understand your unique challenges and goals.</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    <div>
+                                        <h4 class="font-semibold text-slate-800">AI-Powered Operational Efficiency</h4>
+                                        <p class="text-slate-600">Streamline workflows, automate tasks, and reduce operational costs.</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    <div>
+                                        <h4 class="font-semibold text-slate-800">Custom AI Roadmap & Implementation</h4>
+                                        <p class="text-slate-600">A clear, actionable plan for integrating AI into your business, from pilot to scale.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="md:w-1/2 fade-in" style="transition-delay: 200ms;">
+                            <img src="https://placehold.co/600x450/3b82f6/ffffff?text=AI+Strategy+Session" alt="AI Strategy Session" class="rounded-lg shadow-xl w-full">
+                        </div>
+                    </div>
+
+                    <!-- CTA -->
+                     <div class="text-center my-16 fade-in">
+                        <a href="#contact" class="nav-link bg-blue-600 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-blue-700 transition-transform transform hover:scale-105 duration-300 inline-block glow-on-hover">Schedule a Discovery Call</a>
+                    </div>
+
+                    <!-- AI Workshops Section -->
+                    <div class="text-center mb-16 fade-in">
+                        <span class="text-blue-600 font-semibold uppercase">Training</span>
+                        <h2 class="text-3xl font-bold text-slate-800 mt-2">Interactive AI Workshops</h2>
+                        <p class="text-lg text-slate-600 mt-3 max-w-3xl mx-auto">Empower your teams with the knowledge and skills to leverage AI effectively. Our workshops are hands-on, focused on real-world application, and designed to drive immediate outcomes.</p>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8 text-center">
+                        <!-- Workshop Card 1 -->
+                        <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 fade-in">
+                            <h3 class="text-xl font-semibold mb-2 text-slate-800">General AI Workshops</h3>
+                            <p class="text-slate-600">Perfect for leadership and all-hands meetings to build a foundational understanding of AI's potential.</p>
+                        </div>
+                        <!-- Workshop Card 2 -->
+                        <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 fade-in" style="transition-delay: 200ms;">
+                            <h3 class="text-xl font-semibold mb-2 text-slate-800">Custom Department Training</h3>
+                            <p class="text-slate-600">Tailored sessions for marketing, sales, HR, or operations teams to tackle department-specific challenges.</p>
+                        </div>
+                        <!-- Workshop Card 3 -->
+                        <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 fade-in" style="transition-delay: 400ms;">
+                            <h3 class="text-xl font-semibold mb-2 text-slate-800">Problem-Specific Solutions</h3>
+                            <p class="text-slate-600">Intensive workshops focused on solving a single, critical business problem with AI-driven strategies.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- About Page -->
+        <div id="about" class="page">
+            <section class="py-20 bg-slate-50">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h1 class="text-4xl md:text-5xl font-bold text-slate-800">About Tech Edge Labs</h1>
+                        <p class="text-lg text-slate-600 mt-3">Your dedicated partner in AI-driven business transformation.</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-xl p-8 md:p-12 max-w-4xl mx-auto">
+                        <!-- Mission Statement -->
+                        <div class="mb-12 fade-in">
+                            <h2 class="text-2xl font-bold text-slate-800 mb-4">Our Mission</h2>
+                            <p class="text-slate-600 text-lg leading-relaxed">Our mission is to demystify artificial intelligence for businesses of all sizes. We believe that with the right strategy and guidance, any organization can harness the power of AI to not only solve its most pressing challenges but also to uncover new opportunities for growth and innovation. We are committed to providing practical, ROI-focused solutions that make a real difference.</p>
+                        </div>
+
+                        <!-- Why Tech Edge Labs? -->
+                        <div class="mb-12 fade-in">
+                            <h2 class="text-2xl font-bold text-slate-800 mb-6 text-center">Why Tech Edge Labs?</h2>
+                            <div class="grid md:grid-cols-2 gap-8 text-left">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-slate-800">Flexible Engagement</h3>
+                                        <p class="text-slate-600">We adapt to your needs, whether it's a single project, a department-wide initiative, or a full organizational transformation.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-slate-800">Clear, Measurable ROI</h3>
+                                        <p class="text-slate-600">Our success is measured by your success. We focus on delivering solutions that provide a clear and quantifiable return on investment.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Founder's Message -->
+                        <div class="bg-slate-100 p-8 rounded-lg text-center fade-in">
+                            <img src="https://placehold.co/100x100/e2e8f0/475569?text=Founder" alt="Founder's Picture" class="w-24 h-24 rounded-full mx-auto mb-4">
+                            <h3 class="text-xl font-semibold text-slate-800">A Message from Our Founder</h3>
+                            <p class="text-slate-600 italic mt-2 max-w-xl mx-auto">"We started Tech Edge Labs to be the bridge between AI's potential and its practical application. We're here to be your trusted advisors on this transformative journey."</p>
+                            <p class="font-semibold text-slate-700 mt-4">- Founder Name, CEO</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Calendly/Contact Section -->
+            <section id="contact" class="py-20 bg-white">
+                <div class="container mx-auto px-6">
+                     <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Let's Talk AI Strategy</h2>
+                        <p class="text-lg text-slate-600 mt-2">Book a complimentary discovery call or send us a message.</p>
+                    </div>
+
+                    <div class="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
+                        <!-- Calendly Embed -->
+                        <div class="w-full lg:w-1/2 h-[700px] rounded-lg shadow-xl overflow-hidden fade-in">
+                            <iframe 
+                                src="https://calendly.com/your-link" 
+                                width="100%" 
+                                height="100%" 
+                                style="border:0;"
+                                title="Schedule a meeting with Tech Edge Labs">
+                            </iframe>
+                        </div>
+
+                        <!-- Contact Form -->
+                        <div class="w-full lg:w-1/2 fade-in" style="transition-delay: 200ms;">
+                            <div id="contact-form-container" class="bg-white p-8 rounded-lg shadow-xl">
+                                <h3 class="text-2xl font-bold text-slate-800 mb-6">Send Us a Message</h3>
+                                <form id="contact-form" action="https://formspree.io/f/your_form_id" method="POST">
+                                    <div class="mb-4">
+                                        <label for="name" class="block text-slate-700 font-semibold mb-2">Name</label>
+                                        <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" required>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="email" class="block text-slate-700 font-semibold mb-2">Email</label>
+                                        <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" required>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="company" class="block text-slate-700 font-semibold mb-2">Company</label>
+                                        <input type="text" id="company" name="company" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                                    </div>
+                                    <div class="mb-6">
+                                        <label for="message" class="block text-slate-700 font-semibold mb-2">Message</label>
+                                        <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" required></textarea>
+                                    </div>
+                                    <div>
+                                        <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-all duration-300 glow-on-hover">Send Message</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div id="success-message" class="hidden text-center bg-green-100 border border-green-400 text-green-700 px-4 py-8 rounded-lg shadow-xl relative" role="alert">
+                                <svg class="w-16 h-16 mx-auto mb-4 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                <strong class="font-bold text-2xl">Thank you!</strong>
+                                <p class="block sm:inline text-lg mt-2">Your message has been sent successfully. We'll be in touch soon.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-slate-300">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p>&copy; 2024 Tech Edge Labs. All Rights Reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#home" class="nav-link hover:text-white transition-colors">Home</a>
+                    <a href="#services" class="nav-link hover:text-white transition-colors">Services</a>
+                    <a href="#about" class="nav-link hover:text-white transition-colors">About</a>
+                    <a href="mailto:contact@techedgelabs.com" class="hover:text-white transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Topic Modal -->
+    <div id="topic-modal" class="modal-backdrop hidden">
+        <div class="modal-content relative">
+            <button id="close-modal" class="absolute top-4 right-4 text-slate-500 hover:text-slate-800">
+                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h3 id="modal-title" class="text-2xl font-bold mb-4 text-slate-800"></h3>
+            <p id="modal-description" class="text-slate-600"></p>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page');
+            const header = document.getElementById('main-header');
+            
+            // --- SCROLL OBSERVER & ANIMATION LOGIC (MOVED UP) ---
+            let observer;
+
+            function observeFadeInElements() {
+                const fadeInElements = document.querySelectorAll('.fade-in:not(.visible)');
+                if (observer) {
+                    observer.disconnect();
+                }
+                
+                observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                fadeInElements.forEach(el => {
+                    observer.observe(el);
+                });
+            }
+
+
+            // --- PAGE NAVIGATION ---
+            function showPage(pageId) {
+                pages.forEach(page => {
+                    page.classList.remove('active');
+                });
+                const activePage = document.getElementById(pageId);
+                if (activePage) {
+                    activePage.classList.add('active');
+                    // Trigger fade-in animations for the new page
+                    observeFadeInElements();
+                }
+                window.scrollTo(0, 0); // Scroll to top on page change
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href.startsWith('#') && href.length > 1) {
+                        e.preventDefault();
+                        const pageId = href.substring(1);
+                        if (document.getElementById(pageId)) {
+                             // If it's a page-level link (home, services, about)
+                            if(pageId === 'home' || pageId === 'services' || pageId === 'about'){
+                                showPage(pageId);
+                            } else { // It's an anchor link on the current page (like #contact)
+                                const targetElement = document.getElementById(pageId);
+                                if (targetElement) {
+                                    targetElement.scrollIntoView({
+                                        behavior: 'smooth'
+                                    });
+                                }
+                            }
+                        }
+                        // Close mobile menu if open
+                        document.getElementById('mobile-menu').classList.add('hidden');
+                    }
+                });
+            });
+
+            // Set initial page based on URL hash or default to home
+            const initialPage = window.location.hash ? window.location.hash.substring(1) : 'home';
+            if (document.getElementById(initialPage)) {
+                 showPage(initialPage);
+            } else {
+                 showPage('home');
+            }
+
+
+            // --- MOBILE MENU ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+
+            // --- TOPIC MODAL LOGIC ---
+            const topicCards = document.querySelectorAll('.topic-card');
+            const topicModal = document.getElementById('topic-modal');
+            const closeModalButton = document.getElementById('close-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDescription = document.getElementById('modal-description');
+            
+            const topicDetails = {
+                'prompt-engineering': {
+                    title: 'Deep Dive: Prompt Engineering',
+                    description: 'Our prompt engineering workshops cover advanced techniques like few-shot prompting, chain-of-thought, and negative prompting. We teach your team how to structure complex queries to extract nuanced and accurate information from models like GPT-4, Claude, and Gemini, ensuring your AI initiatives are built on a foundation of high-quality outputs.'
+                },
+                'predictive-analytics': {
+                    title: 'Deep Dive: Predictive Analytics',
+                    description: 'Go beyond historical reporting. We help you build and deploy predictive models to forecast customer churn, sales trends, inventory needs, and more. Our approach uses machine learning algorithms to provide actionable insights, helping you make proactive, data-driven decisions that impact your bottom line.'
+                },
+                'ai-customer-service': {
+                    title: 'Deep Dive: AI in Customer Service',
+                    description: 'We help you design and implement intelligent customer service solutions. This includes training custom chatbots on your company’s data for instant, accurate support, setting up AI-powered ticket routing to reduce response times, and using sentiment analysis to gauge customer satisfaction in real-time.'
+                },
+                'generative-ai': {
+                    title: 'Deep Dive: Generative AI for Business',
+                    description: 'Explore the full spectrum of generative AI. We guide you in leveraging text generation for marketing copy, code generation for rapid prototyping, and image generation for creative assets. Our workshops focus on practical applications that save time, reduce costs, and open up new creative avenues for your teams.'
+                }
+            };
+
+            topicCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const topicKey = card.dataset.topic;
+                    const details = topicDetails[topicKey];
+                    if (details) {
+                        modalTitle.textContent = details.title;
+                        modalDescription.textContent = details.description;
+                        topicModal.classList.remove('hidden');
+                    }
+                });
+            });
+
+            function closeModal() {
+                topicModal.classList.add('hidden');
+            }
+
+            closeModalButton.addEventListener('click', closeModal);
+            topicModal.addEventListener('click', (e) => {
+                if(e.target === topicModal) {
+                    closeModal();
+                }
+            });
+
+            // --- CONTACT FORM SUBMISSION ---
+            const contactForm = document.getElementById('contact-form');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+                const formContainer = document.getElementById('contact-form-container');
+                const successMessage = document.getElementById('success-message');
+                
+                // You would typically use fetch to submit the form via AJAX
+                // For this example, we'll just simulate a successful submission.
+                
+                // fetch(this.action, {
+                //     method: 'POST',
+                //     body: formData,
+                //     headers: {
+                //         'Accept': 'application/json'
+                //     }
+                // }).then(response => {
+                //     if (response.ok) {
+                //         formContainer.style.display = 'none';
+                //         successMessage.classList.remove('hidden');
+                //     } else {
+                //         // Handle server errors
+                //         response.json().then(data => {
+                //           if (Object.hasOwn(data, 'errors')) {
+                //             alert(data["errors"].map(error => error["message"]).join(", "))
+                //           } else {
+                //             alert('Oops! There was a problem submitting your form.')
+                //           }
+                //         })
+                //     }
+                // }).catch(error => {
+                //     // Handle network errors
+                //     alert('Oops! There was a problem submitting your form.');
+                // });
+
+                // SIMULATION for demonstration purposes:
+                setTimeout(() => {
+                    formContainer.style.display = 'none';
+                    successMessage.classList.remove('hidden');
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>
